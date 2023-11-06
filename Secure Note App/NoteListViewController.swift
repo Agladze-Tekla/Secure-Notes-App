@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoteListViewController: UIViewController {
+final class NoteListViewController: UIViewController {
     
     //MARK: - Properties
     private let tableView: UITableView = {
@@ -15,6 +15,8 @@ class NoteListViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
+    
+    private var notes = NoteDetails.noteList
     
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
@@ -28,6 +30,7 @@ class NoteListViewController: UIViewController {
         setupBackground()
         setupSubviews()
         setupConstraints()
+        setupTableView()
     }
     
     private func setupBackground() {
@@ -60,4 +63,44 @@ class NoteListViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
         ])
     }
+    
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(NotesDetailTableViewCell.self, forCellReuseIdentifier: "noteDetailsCell")
+    }
 }
+
+// MARK: - TableVIew DataSource
+extension NoteListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        notes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let note = notes[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "noteDetailsCell") as? NotesDetailTableViewCell {
+            cell.configure(model: note)
+            return cell
+        }
+        return UITableViewCell()
+    }
+}
+
+// MARK: - TableVIew Delegate
+extension NoteListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let noteDetailsViewController = NoteDetailsViewController()
+        noteDetailsViewController.configure(model: notes[indexPath.row])
+        navigationController?.pushViewController(noteDetailsViewController, animated: true)
+    }
+}
+
+// MARK: - AddNewItemDelegate
+extension NoteListViewController: AddNewNoteDelegate {
+    func addNewNote(item: NoteDetails) {
+        notes.append(item)
+        tableView.reloadData()
+    }
+}
+

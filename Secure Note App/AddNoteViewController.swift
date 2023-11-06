@@ -7,7 +7,11 @@
 
 import UIKit
 
-class AddNoteViewController: UIViewController {
+protocol AddNewNoteDelegate: AnyObject {
+    func addNewNote(item: NoteDetails)
+}
+
+final class AddNoteViewController: UIViewController {
 
     //MARK: - Properties
     
@@ -36,6 +40,8 @@ class AddNoteViewController: UIViewController {
         let textView = UITextView()
         return textView
     }()
+    
+    weak var delegate: AddNewNoteDelegate?
     
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
@@ -82,6 +88,11 @@ class AddNoteViewController: UIViewController {
     }
     
     @objc private func setupSaveButtonAction() {
+        delegate?.addNewNote(item: .init(
+            title: noteNameTextField.text ?? String(), note: noteTextView.text
+        ))
         navigationController?.popViewController(animated: true)
     }
+
+
 }

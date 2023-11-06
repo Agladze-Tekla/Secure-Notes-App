@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoteDetailsViewController: UIViewController {
+final class NoteDetailsViewController: UIViewController {
 
         //MARK: - Properties
         
@@ -43,6 +43,13 @@ class NoteDetailsViewController: UIViewController {
             setupView()
         }
         
+       // MARK: - Configure
+       func configure(model: NoteDetails) {
+        if model.title != nil {
+            noteNameTextField.text = model.title
+        }
+            noteTextView.text = model.note
+        }
         //MARK: - Private Methods
         private func setupView() {
             setupBackground()

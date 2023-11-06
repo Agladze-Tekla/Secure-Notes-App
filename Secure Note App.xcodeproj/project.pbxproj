@@ -15,6 +15,8 @@
 		3E57E54D2AF82BC500A33083 /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E57E54C2AF82BC500A33083 /* NoteListViewController.swift */; };
 		3E57E5512AF8333100A33083 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E57E5502AF8333100A33083 /* AddNoteViewController.swift */; };
 		3E57E5552AF8489500A33083 /* NoteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E57E5542AF8489500A33083 /* NoteDetailsViewController.swift */; };
+		3E57E55C2AF8609500A33083 /* NoteDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E57E55B2AF8609500A33083 /* NoteDetails.swift */; };
+		3E57E55F2AF8614300A33083 /* NotesDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E57E55E2AF8614300A33083 /* NotesDetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		3E57E54C2AF82BC500A33083 /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
 		3E57E5502AF8333100A33083 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		3E57E5542AF8489500A33083 /* NoteDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsViewController.swift; sourceTree = "<group>"; };
+		3E57E55B2AF8609500A33083 /* NoteDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetails.swift; sourceTree = "<group>"; };
+		3E57E55E2AF8614300A33083 /* NotesDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +68,13 @@
 				3E5611D62AF7D4D40047EEDE /* SceneDelegate.swift */,
 				3E5611D82AF7D4D40047EEDE /* LoginViewController.swift */,
 				3E57E54C2AF82BC500A33083 /* NoteListViewController.swift */,
+				3E57E55B2AF8609500A33083 /* NoteDetails.swift */,
 				3E57E5502AF8333100A33083 /* AddNoteViewController.swift */,
+				3E57E55E2AF8614300A33083 /* NotesDetailTableViewCell.swift */,
+				3E57E5542AF8489500A33083 /* NoteDetailsViewController.swift */,
 				3E5611DD2AF7D4DA0047EEDE /* Assets.xcassets */,
 				3E5611DF2AF7D4DA0047EEDE /* LaunchScreen.storyboard */,
 				3E5611E22AF7D4DA0047EEDE /* Info.plist */,
-				3E57E5542AF8489500A33083 /* NoteDetailsViewController.swift */,
 			);
 			path = "Secure Note App";
 			sourceTree = "<group>";
@@ -142,8 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E57E55F2AF8614300A33083 /* NotesDetailTableViewCell.swift in Sources */,
 				3E57E54D2AF82BC500A33083 /* NoteListViewController.swift in Sources */,
 				3E5611D92AF7D4D40047EEDE /* LoginViewController.swift in Sources */,
+				3E57E55C2AF8609500A33083 /* NoteDetails.swift in Sources */,
 				3E5611D52AF7D4D40047EEDE /* AppDelegate.swift in Sources */,
 				3E57E5512AF8333100A33083 /* AddNoteViewController.swift in Sources */,
 				3E5611D72AF7D4D40047EEDE /* SceneDelegate.swift in Sources */,
