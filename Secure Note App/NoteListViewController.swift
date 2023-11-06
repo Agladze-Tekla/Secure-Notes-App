@@ -78,7 +78,7 @@ final class NoteListViewController: UIViewController {
     }
 }
 
-// MARK: - TableVIew DataSource
+// MARK: - TableView DataSource
 extension NoteListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         notes.count
@@ -94,7 +94,7 @@ extension NoteListViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - TableVIew Delegate
+// MARK: - TableView Delegate
 extension NoteListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let noteDetailsViewController = NoteDetailsViewController()
@@ -103,7 +103,7 @@ extension NoteListViewController: UITableViewDelegate {
     }
 }
 
-// MARK: - AddNewItemDelegate
+// MARK: - AddNewNoteDelegate
 extension NoteListViewController: AddNewNoteDelegate {
     func addNewNote(item: NoteDetails) {
         notes.append(item)

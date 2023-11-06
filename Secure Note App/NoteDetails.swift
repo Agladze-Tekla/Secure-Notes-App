@@ -51,6 +51,10 @@ struct NoteDetails {
         NoteDetails(
             title: "Okay bye ",
             note: "Seriously gotta get back to work, for real now ( ͡─ ▿ ͡─)"
+        ),
+        NoteDetails(
+            title: "Sleep",
+            note: "Sleep is good for you, sleep is nice, sleep is welcome in this dark night."
         )
     ]
 }

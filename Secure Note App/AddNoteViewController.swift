@@ -86,7 +86,7 @@ final class AddNoteViewController: UIViewController {
     
     @objc private func setupSaveButtonAction() {
         delegate?.addNewNote(item: .init(
-            title: noteNameTextField.text ?? String(), note: noteTextView.text
+            title: noteNameTextField.text ?? String(), note: noteTextView.text ?? String()
         ))
         navigationController?.popViewController(animated: true)
     }

@@ -69,8 +69,7 @@ final class LoginViewController: UIViewController {
         return button
     }()
     
-    class AutoAddPaddingButtton : UIButton
-    {
+    class AutoAddPaddingButtton : UIButton {
         override var intrinsicContentSize: CGSize {
            get {
                let baseSize = super.intrinsicContentSize
@@ -78,6 +77,46 @@ final class LoginViewController: UIViewController {
                              height: baseSize.height + 10)
                }
         }
+    }
+    
+    class KeychainHelper {
+        enum KeyChainError: Error {
+               case sameItemFound
+               case unknown
+               case nosuchDataFound
+               case KCErrorWithCode(Int)
+           }
+        
+        func save(
+                service: String,
+                account: String,
+                password: Data
+            ) {
+                let query: [String: AnyObject] = [
+                    kSecClass as String: kSecClassGenericPassword,
+                    kSecAttrService as String: service as AnyObject,
+                    kSecAttrAccount as String: account as AnyObject,
+                    kSecValueData as String: password as AnyObject,
+                ]
+                
+                let status = SecItemAdd(query as CFDictionary, nil)
+            }
+        
+        func get(
+                service: String,
+                account: String
+            ) -> Data? {
+                let query: [String: AnyObject] = [
+                    kSecClass as String: kSecClassGenericPassword,
+                    kSecAttrService as String: service as AnyObject,
+                    kSecAttrAccount as String: account as AnyObject,
+                    kSecReturnData as String: kCFBooleanTrue as AnyObject,
+                    kSecMatchLimit as String: kSecMatchLimitOne
+                ]
+                var result: AnyObject?
+                let status = SecItemCopyMatching(query as CFDictionary, &result)
+                return result as? Data
+            }
     }
     
     //MARK: - ViewLifeCycle
@@ -119,8 +158,14 @@ final class LoginViewController: UIViewController {
     }
     
     private func pushNoteListViewController() {
+        if usernameTextField.text!.isEmpty  || passwordTextField.text!.isEmpty {
+            print("Please write the username and password")
+        } else {
+          //  KeychainHelper.save(service: "Secure Notes", account: usernameTextField.text!, password: passwordTextField.text)
+        
         let noteListViewController = NoteListViewController()
         navigationController?.pushViewController(noteListViewController, animated: true)
+        }
     }
     
 }
