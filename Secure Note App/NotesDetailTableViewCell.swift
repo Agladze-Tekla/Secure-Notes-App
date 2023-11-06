@@ -13,8 +13,9 @@ final class NotesDetailTableViewCell: UITableViewCell {
     private let noteStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        //stackView.isLayoutMarginsRelativeArrangement = true
-        //stackView.layoutMargins = .init(top: 8, left: 16, bottom: 8, right: 16)
+        stackView.spacing = 5
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = .init(top: 5, left: 13, bottom: 5, right: 13)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()

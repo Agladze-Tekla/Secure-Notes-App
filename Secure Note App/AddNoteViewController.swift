@@ -14,7 +14,6 @@ protocol AddNewNoteDelegate: AnyObject {
 final class AddNoteViewController: UIViewController {
 
     //MARK: - Properties
-    
     private let noteStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -27,7 +26,6 @@ final class AddNoteViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-    
     
     private let noteNameTextField: UITextField = {
         let textField = UITextField()
@@ -84,7 +82,6 @@ final class AddNoteViewController: UIViewController {
             action: #selector(setupSaveButtonAction)
         )
         navigationItem.setRightBarButton(barButtonItem, animated: true)
-        
     }
     
     @objc private func setupSaveButtonAction() {
@@ -93,6 +90,4 @@ final class AddNoteViewController: UIViewController {
         ))
         navigationController?.popViewController(animated: true)
     }
-
-
 }
